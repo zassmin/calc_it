@@ -1,0 +1,38 @@
+/ Main hero unit for a primary marketing message or call to action
+%br
+%br
+%br
+
+.container
+  / Main hero unit for a primary marketing message or call to action 
+  .hero-unit
+    %h1
+      Calc It
+    %h2
+      Zassmin's Killer App
+      
+    %p
+      = Faker::Lorem.paragraph
+
+.row
+  .span4
+    %h2
+      = Faker::Name.name
+    %p
+      = Faker::Lorem.paragraph
+    %p
+      = link_to 'View Details »', '#', class: 'btn'
+  .span4
+    %h2
+      = Faker::Name.name
+    %p
+      = Faker::Lorem.paragraph
+    %p
+      = link_to 'View Details »', '#', class: 'btn'
+  .span4
+    %h2
+      = Faker::Name.name
+    %p
+      = Faker::Lorem.paragraph
+    %p
+      = link_to 'View Details »', '#', class: 'btn'
