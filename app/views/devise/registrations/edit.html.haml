@@ -1,6 +1,5 @@
 %br
 %br
-%br
 
 %h2 
   Edit #{ resource_name.to_s.humanize }
@@ -14,24 +13,7 @@
   = f.buttons do
     = f.commit_button :button_html => { :class => 'primary', :value => 'Edit user'}
 
-%p
-  %h2
-    Authentication Token  
-  %br
-  %strong
-    = resource.authentication_token.blank? ? 'Token Empty' : resource.authentication_token
-%p
-  = link_to 'Generate Token', token_authentications_path(:user_id => resource.id), :method => :post, :confirm => 'Are you sure?'
-  |
-  = link_to 'Delete Token', token_authentication_path(resource), :method => :delete, :confirm => 'Are you sure?'
+%h3 Cancel my account
 
-- if resource.authentication_token
-  %p
-    You can use this url to login
-    %br
-    = link_to "http://#{request.host}:#{request.port.to_s}#{users_index_path(:auth_token => resource.authentication_token)}", users_index_path(:auth_token => resource.authentication_token)
-
--# %h3 Cancel my account
-
--# %p 
-  -#Unhappy? #{ link_to 'Cancel my account', registration_path(resource_name), :confirm => 'Are you sure?', :method => :delete }
+%p 
+  Unhappy? #{ link_to 'Cancel my account', registration_path(resource_name), :confirm => 'Are you sure?', :method => :delete }
