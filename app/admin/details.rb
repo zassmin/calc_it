@@ -10,7 +10,7 @@ ActiveAdmin.register Detail do
   #
   filter :user, :as => :select, :collection => User.all.collect { |user| [user.email, user.id] }
   filter :full_name
-  filter :gender
+  filter :gender, :as => :select, :collection => Detail.gender
   filter :date_of_birth, :as => :date
   #
   # Index page
