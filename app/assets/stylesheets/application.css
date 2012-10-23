@@ -9,5 +9,49 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
- */
+ *= require twitter/bootstrap
+ *= require formtastic-bootstrap
+*/
+
+.beta {
+  color: #E62E00;
+  display: block;
+  float: left;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin-left: -15px;
+  padding: 14px 20px 6px 0px;
+}
+
+.hero-unit #hero-image {
+  float: right;
+  margin: -20px 0 0 0;
+}
+
+.left {
+  float: left;
+}
+
+.left-image {
+  float: left;
+  padding-left: 20px;
+}
+
+.right {
+  float: left;
+}
+.clear {
+  clear: both 
+}
+
+.footer-nav {
+  font-size: 11px;
+  text-align: right;
+  float:right;
+}
+
+.footer-nav .footer-bar {
+  color: blue;
+  padding: 0 12px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.4);
+}
