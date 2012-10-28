@@ -1,0 +1,42 @@
+- @page_name = 'Listing transactions'
+
+%p
+
+%table.table
+  %tr
+    %th
+      Type
+    %th
+      Amount
+    %th
+      Transaction Date
+    %th
+      Post Date
+    %th
+      Description
+    %th
+      &nbsp;
+    %th
+      &nbsp;
+
+  - @transactions.each do |transaction|
+    %tr      
+      %td
+        = transaction.transaction_type
+      %td
+        = transaction.amount
+      %td
+        #{time_ago_in_words(transaction.transaction_date)} ago
+      %td
+        #{time_ago_in_words(transaction.post_date)} ago
+      %td
+        = transaction.description
+      %td
+        = link_to 'Edit', edit_transaction_path(transaction)
+      %td
+        = link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Transaction', new_transaction_path
+

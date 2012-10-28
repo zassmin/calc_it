@@ -1,5 +1,13 @@
 class Transaction < ActiveRecord::Base
-  attr_accessible :amount, :description, :post_date, :transaction_date, :transaction_type, :user_id
   belongs_to :user
-  validates_presence_of :description
+
+  attr_accessible :amount, :description, :post_date, :transaction_date, :transaction_type, :user_id
+
+  validates_presence_of :transaction_type, :amount, :post_date, :transaction_date, :description
+  validates :amount, :numericality => true
+
+  def self.trans_type
+    ['Payment', 'Sale']
+  end
+
 end

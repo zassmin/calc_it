@@ -9,8 +9,9 @@ gem 'meta_search',  '>= 1.1.0.pre'
 
 # Add these for some marketing screens I am doing - LB
 gem 'less-rails-bootstrap'
-gem 'formtastic'
 gem 'formtastic-bootstrap'
+gem 'formtastic'
+
 gem 'bootstrap-kaminari-views'
 
 gem 'faker'
@@ -29,11 +30,11 @@ end
 
 group :production do
   gem 'thin'
-	gem 'pg'
+  gem 'pg'
 end
 
 group :development, :test do
-	gem 'sqlite3'
+  gem 'sqlite3'
   gem 'debugger'
   gem 'heroku'
   gem 'heroku_plus'
@@ -43,5 +44,5 @@ group :development, :test do
 end
 
 group :test do
-  
+
 end

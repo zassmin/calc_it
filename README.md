@@ -1,3 +1,8 @@
+## Transaction To Do ##
+* Date picker on date fields
+* Maybe validate that use has entered a date on the model as well, kind of duplciates above
+
+
 ## Zassmin steps ##
 * Install Postgres and MySql at the machine level using Brew
 
