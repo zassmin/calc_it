@@ -3,7 +3,6 @@
 .form
   = semantic_form_for @transaction do |f|      
     = f.inputs do
-      = f.input :user_id, as: :hidden, value: current_user.id
       = f.input :transaction_type, as: :select, collection: Transaction.trans_type
       = f.input :amount
       = f.input :transaction_date, as: :string
