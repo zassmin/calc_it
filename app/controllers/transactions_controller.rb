@@ -12,11 +12,15 @@ class TransactionsController < SecureController
 
   def create
     @transaction = current_user.transactions.new(params[:transaction])
+
+    #@transaction.save ? (redirect_to transactions_path, notice: 'Transaction was successfully created.') : (render action: 'new')
+
     if @transaction.save
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
     else
       render action: 'new'
     end
+
   end
 
   def edit
