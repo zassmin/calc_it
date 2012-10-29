@@ -3,8 +3,8 @@ class CreateTransactions < ActiveRecord::Migration
     create_table :transactions do |t|
       t.integer :user_id
       t.string :transaction_type
-      t.datetime :transaction_date
-      t.datetime :post_date
+      t.date :transaction_date
+      t.date :post_date
       t.string :description
       t.float :amount
 

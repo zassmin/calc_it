@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20121019053413) do
   create_table "transactions", :force => true do |t|
     t.integer  "user_id"
     t.string   "transaction_type"
-    t.datetime "transaction_date"
-    t.datetime "post_date"
+    t.date     "transaction_date"
+    t.date     "post_date"
     t.string   "description"
     t.float    "amount"
     t.datetime "created_at",       :null => false
