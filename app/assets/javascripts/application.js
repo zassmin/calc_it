@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require twitter/bootstrap
-//= require utils/bootstrap-datepicker.js
+
 
 $(document).ready(function(){
 

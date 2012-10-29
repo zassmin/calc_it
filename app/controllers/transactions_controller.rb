@@ -3,7 +3,7 @@ class TransactionsController < SecureController
   before_filter :find_transaction, only: [:edit, :update, :destroy]
 
   def index
-    @transactions = current_user.transactions
+    @transactions = current_user.transactions.order('transaction_date desc')
   end
 
   def new
