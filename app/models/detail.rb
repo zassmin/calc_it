@@ -4,10 +4,8 @@ class Detail < ActiveRecord::Base
 
   validates_presence_of :gender, :full_name, :user_id
 
-	def self.gender
-		['Male', 'Female', 'Opt Out']
-	end
+  def self.gender
+    ['Male', 'Female', 'Opt Out']
+  end
 
-
-	
 end

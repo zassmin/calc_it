@@ -1,5 +1,3 @@
-- @page_name = 'Sign up'
-
 .form
   = semantic_form_for @transaction do |f|      
     = f.inputs do
@@ -9,8 +7,6 @@
       = f.input :post_date, as: :string
       = f.input :description, as: :text,  input_html: { rows: 2 }      
     = f.actions
-
-
 
 :javascript
   $('#transaction_transaction_date').datepicker({format: 'yyyy-mm-dd'})
