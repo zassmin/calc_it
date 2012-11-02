@@ -1,0 +1,14 @@
+development:
+  bucket: zassmins_app
+  access_key_id: AKIAIWT57FIJUQXIW4ZA
+  secret_access_key: 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
+
+test:
+  bucket: zassmins_app
+  access_key_id: AKIAIWT57FIJUQXIW4ZA
+  secret_access_key: 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
+
+production:
+  bucket: zassmins_app
+  access_key_id: AKIAIWT57FIJUQXIW4ZA
+  secret_access_key: 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

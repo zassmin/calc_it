@@ -1,0 +1,10 @@
+- @page_name = 'Upload a CSV file of all your transactions'
+
+= semantic_form_for @transaction_import, html: { multipart: true } do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :csv, label: 'Choose a CSV file from your computer.'
+  = f.actions do
+    = f.action :submit, button_html: { class: 'primary', value: 'Upload your CSV file'}
+  
+= link_to 'Back', transactions_path

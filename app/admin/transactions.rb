@@ -3,21 +3,25 @@ ActiveAdmin.register Transaction do
   # Menu
   #
   menu :parent => 'Users'
-  
+
    #
   # Filters
   #
   filter :user, :as => :select, :collection => User.all.collect { |user| [user.email, user.id] }
   filter :transaction_type
-  filter :transaction_date, :as => :datetime
-  filter :post_date,        :as => :datetime
+  filter :transaction_date
+  filter :post_date
   filter :description
   filter :amount
-  
+
+  actions :all, :except => [:new, :create, :edit, :update, :show]
   index do
-    column 'Email', :user_id do |transaction|
+    column :id
+    column 'User', :user_id do |transaction|
       transaction.user.email
     end
+
+    column :transaction_import_id
     column :transaction_type
     column :transaction_date
     column :post_date
@@ -25,7 +29,7 @@ ActiveAdmin.register Transaction do
     column :amount
     default_actions
   end
-  
+
   #
   # Form
   #

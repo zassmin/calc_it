@@ -4,17 +4,18 @@ gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'haml-rails'
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
-gem 'meta_search',  '>= 1.1.0.pre'
+gem 'activeadmin'
 
 # Add these for some marketing screens I am doing - LB
 gem 'less-rails-bootstrap'
 gem 'formtastic-bootstrap'
 gem 'formtastic'
-
 gem 'bootstrap-kaminari-views'
 
 gem 'faker'
+
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.

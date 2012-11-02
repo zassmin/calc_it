@@ -3,7 +3,7 @@ class TransactionsController < SecureController
   before_filter :find_transaction, only: [:edit, :update, :destroy]
 
   def index
-    @transactions = current_user.transactions.order('transaction_date desc')
+    @transactions = current_user.transactions.order('transaction_date desc').page(params[:page]).per(10)
   end
 
   def new
@@ -12,8 +12,6 @@ class TransactionsController < SecureController
 
   def create
     @transaction = current_user.transactions.new(params[:transaction])
-
-    #@transaction.save ? (redirect_to transactions_path, notice: 'Transaction was successfully created.') : (render action: 'new')
 
     if @transaction.save
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
@@ -38,6 +36,8 @@ class TransactionsController < SecureController
     @transaction.destroy
     redirect_to transactions_url, notice: 'Transaction was successfully deleted.'
   end
+
+  private
 
   def find_transaction
     @transaction = current_user.transactions.find(params[:id])

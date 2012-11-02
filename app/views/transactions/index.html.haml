@@ -1,9 +1,12 @@
 - @page_name = 'Listing transactions'
 
 %p
+=  paginate @transactions
 
 %table.table
   %tr
+    %th
+      ID
     %th
       Type
     %th
@@ -21,14 +24,18 @@
 
   - @transactions.each do |transaction|
     %tr      
+      %td 
+        = transaction.id
       %td
         = transaction.transaction_type
       %td
         = transaction.amount
       %td
-        #{time_ago_in_words(transaction.transaction_date)} ago
+        = transaction.transaction_date
+        -#{time_ago_in_words(transaction.transaction_date)} ago
       %td
-        #{time_ago_in_words(transaction.post_date)} ago
+        = transaction.transaction_date
+        -#{time_ago_in_words(transaction.post_date)} ago
       %td
         = transaction.description
       %td
@@ -36,7 +43,13 @@
       %td
         = link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+%p
+  =  paginate @transactions
 
-= link_to 'New Transaction', new_transaction_path
+%p
 
+  = link_to 'New Transaction', new_transaction_path
+  |
+  = link_to 'Upload File', new_transaction_import_path
+  |
+  = link_to 'Delete last bulk upload of transactions', delete_last_bulk_upload_path, :confirm => 'Are you sure?', :method => :delete

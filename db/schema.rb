@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019053413) do
+ActiveRecord::Schema.define(:version => 20121102025725) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,15 +55,26 @@ ActiveRecord::Schema.define(:version => 20121019053413) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "transaction_imports", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "csv_file_name"
+    t.string   "csv_content_type"
+    t.integer  "csv_file_size"
+    t.datetime "csv_updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "transactions", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "transaction_import_id"
     t.string   "transaction_type"
     t.date     "transaction_date"
     t.date     "post_date"
     t.string   "description"
     t.float    "amount"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "users", :force => true do |t|

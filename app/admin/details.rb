@@ -1,22 +1,24 @@
 ActiveAdmin.register Detail do
-  
-	#
+
+  #
   # Menu
   #
   menu :parent => 'Users'
 
-	#
+  #
   # Filters
   #
   filter :user, :as => :select, :collection => User.all.collect { |user| [user.email, user.id] }
   filter :full_name
   filter :gender, :as => :select, :collection => Detail.gender
-  filter :date_of_birth, :as => :date
+  filter :date_of_birth
   #
   # Index page
   #
+  actions :all, :except => [:new, :create, :edit, :update, :show, :destroy]
   index do
-    column 'Email', :user_id do |detail|
+    column :id
+    column 'User', :user_id do |detail|
       detail.user.email
     end
     column :full_name
@@ -24,7 +26,7 @@ ActiveAdmin.register Detail do
     column :date_of_birth
     default_actions
   end
-  
+
   #
   # Form
   #
@@ -37,6 +39,6 @@ ActiveAdmin.register Detail do
     end
     f.buttons
   end
-  
+
 
 end
