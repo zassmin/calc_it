@@ -32,12 +32,15 @@ class TransactionImport < ActiveRecord::Base
     require 'CSV'
     file_contents = open(file.csv.url) {|f| f.read }
     CSV.parse(file_contents, :headers => :true) do |row|
+      logger.debug "Tran Date -  #{row[1]}"
+      logger.debug "Post Date -  #{row[2]}"
+
       Transaction.create!(  transaction_import_id: file.id,
                             user_id: user_id,
-                            amount: row[5],
+                            amount: row[4],
                             description: row[3].split(' ').each{|word| word.capitalize!}.join(' '),
-                            post_date: row[2],        #, Date.strptime(row[2], "%d/%m/%Y"),
-                            transaction_date: row[1], #Date.strptime(row[1], "%d/%m/%Y"),
+                            post_date: Date.strptime(row[2], "%m/%d/%Y"),
+                            transaction_date: Date.strptime(row[1], "%m/%d/%Y"),
                             transaction_type: row[0]
                           )
       end

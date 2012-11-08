@@ -18,9 +18,14 @@ class TransactionImportsController < SecureController
 
   def destroy
     last_transaction_import = current_user.transaction_imports.last
-    last_transaction_import.destroy
-    Transaction.delete_all(["transaction_import_id = ? ", last_transaction_import.id])
-    flash[:notice] = 'Your last uploaded transaction data file was successfully deleted, and corresponding rows in the transactions table deleted.'
+
+    if !last_transaction_import.nil?      
+      last_transaction_import.destroy  
+      Transaction.delete_all(["transaction_import_id = ? ", last_transaction_import.id])
+      flash[:notice] = 'Your last uploaded transaction data file was successfully deleted, and corresponding rows in the transactions table deleted.'      
+    else 
+      flash[:notice] = 'You have no more files to delete.'    
+    end
     redirect_to transactions_path
   end
 

@@ -4,6 +4,7 @@ class TransactionsController < SecureController
 
   def index
     @transactions = current_user.transactions.order('transaction_date desc').page(params[:page]).per(10)
+    @balance = current_user.transactions.sum(:amount).round(2)
   end
 
   def new

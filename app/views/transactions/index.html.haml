@@ -1,5 +1,10 @@
 - @page_name = 'Listing transactions'
 
+- @balance > 0 ? color = 'green' : color = 'red'
+
+%h4{ style: "color: #{color}" }
+  Balance $#{@balance}
+
 %p
 =  paginate @transactions
 

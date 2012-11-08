@@ -1,10 +1,5 @@
-## Transaction Bulk Upload ##
-* Load the file from the folder within the app /doc/test-upload.csv
-* There is still issues with the uploading, some amounts and dates are not being formatted and hence show as blank.
-* Validations on the transactions model are still commented out, they are killing the file upload at the moment
-
-## Transaction To Do ##
-* Maybe validate that use has entered a date on the model as well, kind of duplicates above
+## Filters ##
+* Need to add some filters on the description field, transactions. Basically Rene is eating too much Chipotle.
 
 ## Start to think about users > groups > transactions ##
 
